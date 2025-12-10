@@ -1,0 +1,91 @@
+                public class Book
+                {
+                    private string[] chapters;
+                    public Book(int maxChapters = 10)
+                    {
+                        chapters = new string[maxChapters];
+                    }
+                    public string this[int index]
+                    {
+                        get
+                        {
+                            if (index < 0 || index >= chapters.Length)
+                                throw new IndexOutOfRangeException("Неверный номер главы");
+                            return chapters[index];
+                        }
+                        set
+                        {
+                            if (index < 0 || index >= chapters.Length)
+                                throw new IndexOutOfRangeException("Неверный номер главы");
+                            chapters[index] = value;
+                        }
+                    }
+                    public override string ToString()
+                    {
+                        var sb = new StringBuilder();
+                        int chapterNumber = 1;
+
+                        foreach (var chapter in chapters)
+                        {
+                            if (!string.IsNullOrEmpty(chapter))
+                            {
+                                sb.AppendLine($"{chapterNumber}, {chapter}");
+                                chapterNumber++;
+                            }
+                        }
+                        return sb.ToString();
+                    }
+                                    }
+                public class Vector
+                {
+                    private double[] components;
+                    public Vector(params double[] components)
+                    {
+                        this.components = new double[components.Length];
+                        Array.Copy(components, this.components, components.Length);
+                    }
+                    public static double operator * (Vector v1, Vector v2)
+                    {
+                        if (v1.components.Length != v2.components.Length)
+                            throw new ArgumentException("Векторы должны иметь одинаковую разномерность");
+
+                        double result = 0;
+                        for (int i = 0;  i < v1.components.Length; i++)
+                        {
+                            result += v1.components[i] * v2.components[i];
+                        }
+                        return result;
+                    }
+                    public double this[int index]
+                    {
+                        get
+                        {
+                            if (index < 0 || index >= components.Length)
+                                throw new IndexOutOfRangeException("Неверный индекс");
+                            return components[index];
+                        }
+                        set
+                        {
+                            if (index < 0 || index >= components.Length)
+                                throw new IndexOutOfRangeException("Неверный индекс");
+                            components[index] = value;
+                        }
+                    }
+                    public override string ToString()
+                    {
+                        return $"[{string.Join(", ", components)}]";
+                    }
+                }
+                static void Main(string[] args)
+                {
+
+class Program
+{
+    static void Main()
+    {
+                        var book = new Book();
+                    book[0] = "Введение";
+                    book[1] = "Глава 1";
+                    Console.WriteLine(book[0]);
+    }
+}
