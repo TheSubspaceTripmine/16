@@ -1,8 +1,6 @@
-    internal class Program
+    internal class Point
     {
-       
-        class Point
-        {
+    
             public int X { get; set; }
             public int Y { get; set; }
             public Point(int x, int y)
@@ -21,7 +19,15 @@
             {
                 return $"({X}, {Y})";
             }
+            
+                 class Program
+{
+    static void Main()
+    {
                     var p1 = new Point(1, 2);
                     var p2 = new Point(2, 3);
                     Console.WriteLine(p1 + p2);
                     Console.WriteLine(p2 - p1);
+              }
+
+        }
