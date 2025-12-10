@@ -36,9 +36,15 @@
                 {
                     return $"{Name}, {Value}";
                 }
+
+                class Program
+{
+    static void Main()
+    {
                     var c = new Counter("Счётчик", 10);
                     c = c + 5;
                     Console.WriteLine(c);
                     c["value"] = 20;
                     Console.WriteLine(c["value"]);
-
+                }
+          }
